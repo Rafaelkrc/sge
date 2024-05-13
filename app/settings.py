@@ -40,6 +40,7 @@ AUTH_USER_MODEL = 'base.User'
 INSTALLED_APPS = [
     'app',
     'base',
+    'brands',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
