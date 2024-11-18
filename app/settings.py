@@ -15,6 +15,7 @@ import os
 from decouple import config, Csv
 from functools import partial
 from pathlib import Path
+from datetime import timedelta
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,6 +48,8 @@ INSTALLED_APPS = [
     'inflows',
     'outflows',
     'rest_framework',
+    'rest_framework_simplejwt',
+    'authentication',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -144,3 +147,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.DjangoModelPermissions',
+    ),
+}
+
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=365),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=365 * 5),
+}
