@@ -7,16 +7,16 @@ class OutflowForm(forms.ModelForm):
 
     class Meta:
         model = models.Outflows
-        fields = ['product', 'quantity', 'descriptio']
+        fields = ['product', 'quantity', 'description']
         widgets = {
             'product': forms.Select(attrs={'class': 'form-control'}),
             'quantity': forms.NumberInput(attrs={'class': 'form-control'}),
-            'descriptio': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
         labels = {
             'product': 'Produto',
             'quantity': 'Quantidade',
-            'descriptio': 'Descrição',
+            'description': 'Descrição',
         }
 
     def clean_quantity(self):
