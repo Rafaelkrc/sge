@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'products',
     'inflows',
     'outflows',
+    'ai',
     'rest_framework',
     'rest_framework_simplejwt',
     'authentication',
@@ -158,8 +159,12 @@ REST_FRAMEWORK = {
     ),
 }
 
-
+# Configuration token lifetime API
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=365),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=365 * 5),
 }
+
+# Variables OpenAI
+OPENAI_MODEL = 'gpt-3.5-turbo'
+OPENAI_API_KEY = config('OPENAI_API_KEY')
